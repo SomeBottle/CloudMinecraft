@@ -63,7 +63,7 @@ while(true){
 		}
 		break;
 	}
-	sleep(6);
+	sleep(10);
 }
 ssh2_disconnect($connection);/*关闭ssh2连接*/
 unlink('./create.lock');
