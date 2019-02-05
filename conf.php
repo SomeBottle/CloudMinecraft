@@ -3,8 +3,8 @@ $keys=array(
   1=>'your own key'
 );/*访问授权key*/
 $secrets=array(
-  id=>'',
-  key=>''
+  'id'=>'',
+  'key'=>''
 );/*API SECRET ID&KEY*/
 $prepareins = array(
    1 => 'SA1.SMALL1',
