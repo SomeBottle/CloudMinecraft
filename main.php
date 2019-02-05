@@ -67,16 +67,7 @@ if ($verify) {
             $result['statu'] = 'error';
             $result['msg'] = 'Not Running.';
         }
-    } else if ($cm == 'skip') {
-        if (file_exists('./create.progress')) {
-            file_put_contents('./stop.txt','');
-			$result['statu'] = 'success';
-            $result['msg'] = 'Stopped one Step';
-        } else {
-            $result['statu'] = 'error';
-            $result['msg'] = 'Not Running.';
-        }
-    } else if ($cm == 'sendcommand') {
+    }else if ($cm == 'sendcommand') {
         if (file_exists('./create.progress')) {
 			file_put_contents('./command.request',$command);
             exec('php runCommand.php' . ' > /dev/null &'); /*请打开exec支持*/
