@@ -52,6 +52,7 @@ if ($verify) {
     } else if ($cm == 'progress') {
         if (file_exists('./create.progress')) {
             $v = file_get_contents('./create.progress');
+			$result['statu'] = 'success';
             $result['msg'] = $v;
         } else {
             $result['statu'] = 'error';
@@ -60,6 +61,7 @@ if ($verify) {
     } else if ($cm == 'skip') {
         if (file_exists('./create.progress')) {
             file_put_contents('./stop.txt','');
+			$result['statu'] = 'success';
             $result['msg'] = 'Stopped one Step';
         } else {
             $result['statu'] = 'error';
@@ -68,6 +70,7 @@ if ($verify) {
     } else if ($cm == 'skip') {
         if (file_exists('./create.progress')) {
             file_put_contents('./stop.txt','');
+			$result['statu'] = 'success';
             $result['msg'] = 'Stopped one Step';
         } else {
             $result['statu'] = 'error';
@@ -77,6 +80,7 @@ if ($verify) {
         if (file_exists('./create.progress')) {
 			file_put_contents('./command.request',$command);
             exec('php runCommand.php' . ' > /dev/null &'); /*请打开exec支持*/
+			$result['statu'] = 'success';
             $result['msg'] = 'Sent to the Server.';
         } else {
             $result['statu'] = 'error';
