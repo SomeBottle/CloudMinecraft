@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dejavu</title>
+<link rel="stylesheet" href="./jcs/style.css">
+<body>
+<div class="container-lg px-3 my-5 markdown-body">
+<h1 id="o">Dejavu - Cloud Minecraft</h1>
+<p>Create a minecraft server with TencentCloud API when the worlds are saved in another Student's Cloud.</p>
+<ul>
+<p>Access Key:&nbsp;<input type='text' id='key'></input></p>
+<p>Command:&nbsp;<input type='text' id='commandin' placeholder='Without "/"'></input></p>
+<p><input type='button' class='button-rounded button-primary' value='Launch Server' onclick='launch()' id='lc'></input></p>
+<p><input type='button' class='button-rounded' value='Stop server' onclick='skip()' id='st' style='display:none;'></input></p>
+<p><input type='button' class='button-rounded' value='Send Command' onclick='sendcm()' id='sc'></input></p>
+<h3>Server Statu</h3>
+<p id='statu'></p>
+<p id='cmst'></p>
+</ul>
+</div>
+</body>
+<script src='./jcs/s.js'></script>
