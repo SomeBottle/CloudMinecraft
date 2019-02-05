@@ -18,6 +18,13 @@ require './sftpconnect.php';
 connectssh($config);
 shell('screen -x -S minecraft -p 0 -X stuff "stop"','block');
 shell('screen -x -S minecraft -p 0 -X stuff "\n"','');/*相当于回车*/
+function sendback(){
+   global $ftp;
+   $localpath='/www/wwwroot/cloudmc.imbottle.com/server.zip';
+   $serverpath='/root/mc/server.zip';
+   $st = $ftp->downftp($serverpath,$localpath);/*传回存档*/
+   return $st;
+}
 sleep(5);
 while(true){
     $javast=shell('lsof -i:25565','block');/*等到服务器完全停止再进入下一步*/
@@ -44,10 +51,20 @@ while(true){
 }
 unlink('./server.zip');
 sleep(1);
-$localpath='/www/wwwroot/cloudmc.imbottle.com/server.zip';
-$serverpath='/root/mc/server.zip';
-$st = $ftp->downftp($serverpath,$localpath);/*传回存档*/
-sleep(3);
+while(true){
+	if(file_exists('./server.zip')){
+		break;
+	}else{
+		sendback();
+	}
+	if(file_exists('./stop.txt')){
+		if(file_exists('./stop.txt')){
+			unlink('./stop.txt');
+		}
+		break;
+	}
+	sleep(6);
+}
 ssh2_disconnect($connection);/*关闭ssh2连接*/
 unlink('./create.lock');
 unlink('./create.progress');

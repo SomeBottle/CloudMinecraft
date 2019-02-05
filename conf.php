@@ -17,6 +17,6 @@ $disksize=50;/*磁盘大小*/
 $imageid='img-dkwyg6sr';/*选择安装的镜像id*/
 $waitfordestroy=40;/*等待多少(分钟)自动释放(保险用)*/
 $allownobody=10;/*服务器部署后允许几(分钟)没人(>=10)*/
-$ziptime=60;/*留给解压的时间(秒)*/
+$ziptime=10;/*留给压缩的时间(秒)*/
 $secugroupid='';/*绑定的安全组id*/
 ?>
